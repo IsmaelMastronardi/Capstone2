@@ -32,14 +32,4 @@ const myArr = [
 
 
 // Loop through the array and create cards for each show
-myArr.forEach((elem) => {
-  // Create a card element for the current show
-    const card = fetchTvApi(elem);
-    const container = document.getElementById('cardContainer');
-
-  // Append the card element to the body
-  container.appendChild(card);
-
-  // Show the image of the show inside the img-container of the card
-//   fetchTvApi(elem);
-});
+myArr.forEach((elem) => fetchTvApi(elem));
