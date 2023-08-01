@@ -1,5 +1,6 @@
 const myUrl = 'https://api.tvmaze.com/shows/'
 
+const container = document.getElementById('cardContainer');
 
 const display = (json) => {
   
@@ -22,10 +23,24 @@ const createCard = (obj, json) => {
   const myImg = document.createElement('img');
   myImg.src = json.image.original;
 
+  //Add like and comments buttons
+  const likeBtn = document.createElement('button');
+  likeBtn.className = 'like-btn';
+  likeBtn.innerHTML = '<i class="fas fa-heart"> like </i>';
+
+  const commentBtn = document.createElement('button');
+  commentBtn.className = 'comment-btn';
+  commentBtn.textContent = 'Comment';
+
   // Append the title and the imgContainer to the card
     imgContainer.appendChild(myImg)
     card.appendChild(title); ;
-    card.appendChild(imgContainer);
+  card.appendChild(imgContainer);
+  card.appendChild(likeBtn);
+  card.appendChild(commentBtn);
+  container.appendChild(card);
+
+  
     
 
   // Return the card element
