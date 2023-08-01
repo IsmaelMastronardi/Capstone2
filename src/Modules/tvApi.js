@@ -25,7 +25,7 @@ const createCard = (obj, json) => {
   // Add like and comments buttons
   const likeBtn = document.createElement('button');
   likeBtn.className = 'like-btn';
-  likeBtn.innerHTML = '<i class="fas fa-heart"> like </i>';
+  likeBtn.innerHTML = '<i class="far fa-heart"></i><span> likes</span>';
 
   const commentBtn = document.createElement('button');
   commentBtn.className = 'comment-btn';
@@ -43,13 +43,15 @@ const createCard = (obj, json) => {
   //   return card;
 };
 
-export default fetchTvApi = async (obj) => {
+const fetchTvApi = async (obj) => {
   const response = await fetch(myUrl + obj.id);
   const json = await response.json();
   if (json) {
     createCard(obj, json);
   }
 };
+
+export default fetchTvApi;
 
 // const myArr = [{
 //   "name": "Game of Thrones",
