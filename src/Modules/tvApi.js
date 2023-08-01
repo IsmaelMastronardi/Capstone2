@@ -18,11 +18,11 @@ const createCard = (obj, json) => {
   // Create a div element with class img-container
   const imgContainer = document.createElement('div');
   imgContainer.className = 'img-container';
-  //Create an image
+  // Create an image
   const myImg = document.createElement('img');
   myImg.src = json.image.original;
 
-  //Add like and comments buttons
+  // Add like and comments buttons
   const likeBtn = document.createElement('button');
   likeBtn.className = 'like-btn';
   likeBtn.innerHTML = '<i class="fas fa-heart"> like </i>';
@@ -43,7 +43,7 @@ const createCard = (obj, json) => {
   //   return card;
 };
 
-export const fetchTvApi = async (obj) => {
+export default fetchTvApi = async (obj) => {
   const response = await fetch(myUrl + obj.id);
   const json = await response.json();
   if (json) {
