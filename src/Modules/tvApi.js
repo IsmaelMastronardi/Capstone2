@@ -2,18 +2,14 @@ const myUrl = 'https://api.tvmaze.com/shows/';
 
 const container = document.getElementById('cardContainer');
 
-// const display = (json) => {
-//   document.body.appendChild(myImg)
-// }
-
 const createCard = (obj, json) => {
   // Create a div element with class card
   const card = document.createElement('div');
   card.className = 'card';
 
-  // Create a h3 element with the name of the show
+  // Create a h3 element with the name given in the JSON
   const title = document.createElement('h3');
-  title.textContent = obj.name;
+  title.textContent = json.name;
 
   // Create a div element with class img-container
   const imgContainer = document.createElement('div');
@@ -38,9 +34,6 @@ const createCard = (obj, json) => {
   card.appendChild(likeBtn);
   card.appendChild(commentBtn);
   container.appendChild(card);
-
-  // Return the card element
-  //   return card;
 };
 
 const fetchTvApi = async (obj) => {
@@ -52,21 +45,3 @@ const fetchTvApi = async (obj) => {
 };
 
 export default fetchTvApi;
-
-// const myArr = [{
-//   "name": "Game of Thrones",
-//   "id": "82"
-// },
-// {
-//   "name": "Girls",
-//   "id": "1"
-// },
-// {
-//   "name": "show 3",
-//   "id": "3"
-// }
-// ]
-
-// myArr.forEach((elem)=>{
-//   showImg(elem)
-// })
