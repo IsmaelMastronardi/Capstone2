@@ -1,8 +1,7 @@
-/* body {
-  background-color: red;
-} */
+body {
+  box-sizing: border-box;
+}
 
-/* Add some style for the cards */
 .card {
   width: 300px;
   border: 1px solid black;
