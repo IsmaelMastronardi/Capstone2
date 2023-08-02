@@ -1,3 +1,19 @@
 body {
-  background-color: red;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 300px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.img-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
 }
