@@ -1,13 +1,11 @@
-const myUrl = 'https://api.tvmaze.com/shows/';
-
 const container = document.getElementById('cardContainer');
 
-const createCard = (obj, json) => {
+const createCard = (json) => {
   // Create a div element with class card
   const card = document.createElement('div');
   card.className = 'card';
 
-  // Create a h3 element with the name given in the JSON
+  // Create a h3 element with the name of the show
   const title = document.createElement('h3');
   title.textContent = json.name;
 
@@ -26,6 +24,7 @@ const createCard = (obj, json) => {
   const commentBtn = document.createElement('button');
   commentBtn.className = 'comment-btn';
   commentBtn.textContent = 'Comment';
+  commentBtn.id = `commentBtn${json.id}`;
 
   // Append the title and the imgContainer to the card
   imgContainer.appendChild(myImg);
@@ -36,11 +35,12 @@ const createCard = (obj, json) => {
   container.appendChild(card);
 };
 
-const fetchTvApi = async (obj) => {
-  const response = await fetch(myUrl + obj.id);
+const fetchTvApi = async () => {
+  const response = await fetch('https://api.tvmaze.com/shows');
   const json = await response.json();
   if (json) {
-    createCard(obj, json);
+    const slicedJson = json.slice(0, 10);
+    slicedJson.forEach((elem) => { createCard(elem); });
   }
 };
 
