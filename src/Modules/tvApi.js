@@ -63,17 +63,18 @@ const displayMenu = (btnid) => {
   </div>
   <div class="movie">
     <h3 class="movieTitle">${arr[id].name}</h3>
-    <div class="infoDif">
-      <p class="movieInfo">genres : ${arr[id].genres}</p>
-      <p class="movieInfo">status : ${arr[id].status}</p>
+    <p class="movieInfo pMargin">genres : ${arr[id].genres}</p>
+    <div class="infoDiv">
+      <p class="movieInfo pMargin">language : ${arr[id].language}</p>
+      <p class="movieInfo pMargin">status : ${arr[id].status}</p>
     </div>
-    <div class="infoDif">
-    <p class="movieInfo">network : ${arr[id].network.name}</p>
-    <p class="movieInfo">raiting : ${arr[id].raiting}</p>
-  </div>
+    <div class="infoDiv">
+      <p class="movieInfo pMargin">network : ${arr[id].network.name}</p>
+      <p class="movieInfo pMargin">rating : ${arr[id].rating.average}</p>
+    </div>
   </div>
   <div class="comments">
-    <title>Comments : 1</title>
+    <h3>Comments : 1</h3>
     <p>first comment</p>
     <p>second commnet</p>
   </div>
