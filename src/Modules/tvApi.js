@@ -1,6 +1,7 @@
 const container = document.getElementById('cardContainer');
 
-const likesId = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/zDkBx7Z7MEPVQmnqSyaW/likes';
+const likesId =
+  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/likes';
 
 const countLikes = (data, itemId) => {
   const result = data.filter((obj) => obj.item_id === itemId);
