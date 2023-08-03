@@ -1,5 +1,49 @@
 const container = document.getElementById('cardContainer');
 
+const countLikes = (data, itemId) => {
+  if (data[itemId - 1]) {
+    const likeBadge = document.getElementById(itemId);
+    likeBadge.textContent = `${data[itemId - 1].likes} likes`;
+  }
+};
+
+const getLikeCount = async (itemId) => {
+  try {
+    // Send a request to the Involvement API to get the like count
+    const response = await fetch(
+      'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/likes',
+    );
+    const data = await response.json();
+
+    // Update the like count badge
+    countLikes(data, itemId);
+  } catch (error) {
+    console.error('Error getting like count:', error);
+  }
+};
+
+const handleLike = async (itemId) => {
+  try {
+    // Send a request to the Involvement API to record the like action
+    await fetch(
+      'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/likes',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          item_id: itemId,
+          // user_id: 'user123', // Replace with the actual user ID
+        }),
+      },
+    );
+    getLikeCount(itemId);
+    // Update the like count badge
+  } catch (error) {
+    console.error('Error recording like:', error);
+  }
+};
 const createCard = (json) => {
   // Create a div element with class card
   const card = document.createElement('div');
@@ -49,67 +93,6 @@ const createCard = (json) => {
   getLikeCount(json.id);
 };
 
-const handleLike = async (itemId) => {
-  try {
-    // Send a request to the Involvement API to record the like action
-    const response = await fetch(
-      `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/likes`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          item_id: itemId,
-          // user_id: 'user123', // Replace with the actual user ID
-        }),
-      }
-    );
-
-    // Check if the API response has a valid JSON content type
-    const contentType = response.headers.get('content-type');
-    if (!contentType || !contentType.includes('application/json')) {
-      console.error('Error recording like: Invalid JSON response');
-      return;
-    }
-
-    const data = await response.json();
-
-    // Update the like count badge
-    if (data && data.likes) {
-      const likeBadge = document.getElementById(itemId);
-      likeBadge.textContent = `${data.likes} likes`;
-    }
-  } catch (error) {
-    console.error('Error recording like:', error);
-  }
-};
-
-const getLikeCount = async (itemId) => {
-  try {
-    // Send a request to the Involvement API to get the like count
-    const response = await fetch(
-      `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/likes?item_id=${itemId}`
-    );
-
-    // Check if the API response has a valid JSON content type
-    const contentType = response.headers.get('content-type');
-    if (!contentType || !contentType.includes('application/json')) {
-      console.error('Error getting like count: Invalid JSON response');
-      return;
-    }
-
-    const data = await response.json();
-
-    // Update the like count badge
-    if (data && data.likes) {
-      const likeBadge = document.getElementById(itemId);
-      likeBadge.textContent = `${data.likes} likes`;
-    }
-  } catch (error) {
-    console.error('Error getting like count:', error);
-  }
-};
 // const handleLike = async (itemId) => {
 //   try {
 //     // Send a request to the Involvement API to record the like action
