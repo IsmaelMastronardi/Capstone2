@@ -16,7 +16,7 @@
   bottom: 20px;
   left: 20px;
   right: 20px;
-  background-color: green;
+  background-color: rgb(136, 201, 255);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -25,11 +25,13 @@
 }
 
 .exitBtn {
-  border-radius: 80px;
+  border-radius: 6px;
+  width: 25px;
+  height: 25px;
   border: none;
-  position: absolute;
-  left: 10px;
-  top: 5px;
+  position: fixed;
+  left: 40px;
+  top: 40px;
 }
 
 .pMargin {
@@ -38,7 +40,7 @@
 
 .popupMenuImg {
   margin-top: 10px;
-  height: 200px;
+  height: 230px;
   border-radius: 20px;
 }
 
@@ -49,17 +51,59 @@
 }
 
 .infoDiv {
-  margin-top: 10px;
-  width: 260px;
+  margin-top: 15px;
+  width: 360px;
   display: flex;
   justify-content: space-between;
 }
 
 .movieTitle {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .movieInfo {
-  font-size: 18px;
+  font-size: 22px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  height: 200px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.fName,
+.fComment {
+  border: 1px solid rgb(129, 129, 129);
+  border-radius: 6px;
+}
+
+.fName {
+  height: 24px;
+}
+
+.fComment {
+  font-family: 'Times New Roman', Times, serif;
+  height: 100px;
+  padding-top: 4px;
+  resize: none;
+  font-size: 15px;
+}
+
+.submitBtn {
+  width: 80px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 6px;
+  border: 1px solid rgb(129, 129, 129);
+  background-color: white;
+  transition: 0.1s;
+}
+
+.submitBtn:active {
+  background-color: rgb(230, 230, 230);
 }
