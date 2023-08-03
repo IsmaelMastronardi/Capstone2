@@ -3,10 +3,8 @@ const container = document.getElementById('cardContainer');
 const likesId = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/zDkBx7Z7MEPVQmnqSyaW/likes';
 
 const countLikes = (data, itemId) => {
-  // console.log(itemId);
   const result = data.filter((obj) => obj.item_id === itemId);
   if (result) {
-    console.log(result);
     const likeBadge = document.getElementById(itemId);
     likeBadge.textContent = `${result[0].likes} likes`;
   }
@@ -17,7 +15,10 @@ const getLikeCount = async (itemId) => {
     const response = await fetch(likesId);
     const data = await response.json();
     // Update the like count badge
-    countLikes(data, itemId);
+    const result = data.filter((obj) => obj.item_id === itemId);
+    if (result.length >= 1) {
+      countLikes(data, itemId);
+    }
   } catch (error) {
     console.log('Error getting like count:', error);
   }
@@ -33,7 +34,7 @@ const handleLike = async (itemId) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          item_id: itemId - 1,
+          item_id: itemId,
           // user_id: 'user123', // Replace with the actual user ID
         }),
       });
