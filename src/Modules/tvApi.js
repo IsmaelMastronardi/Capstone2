@@ -28,17 +28,15 @@ const getLikeCount = async (itemId) => {
 const handleLike = async (itemId) => {
   try {
     // Send a request to the Involvement API to record the like action
-    await fetch(likesId,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          item_id: itemId,
-          // user_id: 'user123', // Replace with the actual user ID
-        }),
-      });
+    await fetch(likesId, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        item_id: itemId,
+      }),
+    });
     getLikeCount(itemId);
     // Update the like count badge
   } catch (error) {
@@ -93,52 +91,6 @@ const createCard = (json) => {
   // Call the function to retrieve and update the like count
   getLikeCount(json.id);
 };
-
-// const handleLike = async (itemId) => {
-//   try {
-//     // Send a request to the Involvement API to record the like action
-//     const response = await fetch(
-//       `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/likes`,
-//       {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//           item_id: itemId,
-//           user_id: 'user123', // Replace with the actual user ID
-//         }),
-//       }
-//     );
-//     const data = await response.json();
-
-//     // Update the like count badge
-//     if (data && data.likes) {
-//       const likeBadge = document.getElementById(json.id);
-//       likeBadge.textContent = `${data.likes} likes`;
-//     }
-//   } catch (error) {
-//     console.error('Error recording like:', error);
-//   }
-// };
-
-// const getLikeCount = async (itemId) => {
-//   try {
-//     // Send a request to the Involvement API to get the like count
-//     const response = await fetch(
-//       `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/likes?item_id=${itemId}`
-//     );
-//     const data = await response.json();
-
-//     // Update the like count badge
-//     if (data && data.likes) {
-//       const likeBadge = document.getElementById(`likeBadge${itemId}`);
-//       likeBadge.textContent = `${data.likes} likes`;
-//     }
-//   } catch (error) {
-//     console.error('Error getting like count:', error);
-//   }
-// };
 
 const fetchTvApi = async () => {
   const response = await fetch('https://api.tvmaze.com/shows');
