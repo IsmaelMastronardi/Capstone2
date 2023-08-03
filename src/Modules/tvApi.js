@@ -1,43 +1,42 @@
 const container = document.getElementById('cardContainer');
 
+const likesId = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/zDkBx7Z7MEPVQmnqSyaW/likes';
+
 const countLikes = (data, itemId) => {
-  if (data[itemId - 1]) {
+  // console.log(itemId);
+  const result = data.filter((obj) => obj.item_id === itemId);
+  if (result) {
+    console.log(result);
     const likeBadge = document.getElementById(itemId);
-    likeBadge.textContent = `${data[itemId - 1].likes} likes`;
+    likeBadge.textContent = `${result[0].likes} likes`;
   }
 };
-
 const getLikeCount = async (itemId) => {
   try {
     // Send a request to the Involvement API to get the like count
-    const response = await fetch(
-      'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/likes',
-    );
+    const response = await fetch(likesId);
     const data = await response.json();
-
     // Update the like count badge
     countLikes(data, itemId);
   } catch (error) {
-    console.error('Error getting like count:', error);
+    console.log('Error getting like count:', error);
   }
 };
 
 const handleLike = async (itemId) => {
   try {
     // Send a request to the Involvement API to record the like action
-    await fetch(
-      'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/likes',
+    await fetch(likesId,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          item_id: itemId,
+          item_id: itemId - 1,
           // user_id: 'user123', // Replace with the actual user ID
         }),
-      },
-    );
+      });
     getLikeCount(itemId);
     // Update the like count badge
   } catch (error) {
