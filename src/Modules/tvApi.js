@@ -6,7 +6,7 @@ const countLikes = (data, itemId) => {
   const result = data.filter((obj) => obj.item_id === itemId);
   if (result) {
     const likeBadge = document.getElementById(itemId);
-    likeBadge.textContent = `${result[0].likes} likes`;
+    likeBadge.textContent = `${result[0].likes} 🤍 likes`;
   }
 };
 const getLikeCount = async (itemId) => {
