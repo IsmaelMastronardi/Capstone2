@@ -1,6 +1,9 @@
 import './style.css';
 import './css/popup.css';
 import './css/header.css';
+import './css/body.css';
+import './css/footer.css';
+import './css/card.css';
 import icon from './assets/images/pageIcon.png';
 import { fetchTvApi } from './Modules/tvApi.js';
 import displayMenu from './Modules/popupMenu.js';
