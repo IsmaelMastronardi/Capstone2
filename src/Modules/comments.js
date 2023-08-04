@@ -1,4 +1,4 @@
-const myId = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/zDkBx7Z7MEPVQmnqSyaW/comments';
+const myId = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/a6bNXajACIujfMt1fQ2H/comments';
 
 const commentCounter = () => {
   const commentsTitle = document.querySelector('#commentsTitle');
@@ -11,7 +11,7 @@ const displayComments = (json) => {
   const commentsDiv = document.querySelector('#commentsDiv');
   if (json.error) {
     const firstComment = document.createElement('p');
-    firstComment.textContent = 'There is no Comments.';
+    firstComment.textContent = 'There are no Comments.';
     commentsDiv.appendChild(firstComment);
   } else {
     while (commentsDiv.firstChild) {
