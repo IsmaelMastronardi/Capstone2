@@ -1,6 +1,7 @@
-button {
+.like-btn,
+.comment-btn {
   background-color: #4caf50;
-  border: none;
+  border: 1px solid black;
   color: white;
   padding: 10px 20px;
   text-align: center;
