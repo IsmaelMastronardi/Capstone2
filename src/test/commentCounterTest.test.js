@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const commentCounter = require('./commentCounterTest');
+const commentCounter = require('./commentCounterTest.js');
 
 describe('my counter', () => {
   test('3 comments', () => {
