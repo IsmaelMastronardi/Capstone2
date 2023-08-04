@@ -49,16 +49,16 @@ const createCard = (json) => {
   // Call the function to retrieve and update the like count
   getLikeCount(json.id);
 };
-
+// eslint-disable-next-line import/no-mutable-exports
+let arr = [];
 const fetchTvApi = async () => {
   const response = await fetch('https://api.tvmaze.com/shows');
   const json = await response.json();
   if (json) {
     const slicedJson = json.slice(0, 10);
-    slicedJson.forEach((elem) => {
-      createCard(elem);
-    });
+    arr = slicedJson;
+    slicedJson.forEach((elem) => { createCard(elem); });
   }
 };
 
-export default fetchTvApi;
+export { fetchTvApi, arr };
