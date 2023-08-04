@@ -1,3 +1,4 @@
+import { getComments, postAComment } from './comments.js';
 import { arr } from './tvApi.js';
 
 const removeMenu = (menu) => {
@@ -5,8 +6,8 @@ const removeMenu = (menu) => {
   document.body.style.overflow = 'scroll';
 };
 
-const displayMenu = (btnid) => {
-  const id = btnid.replace(/\D+/, '') - 1;
+const displayMenu = (btnId) => {
+  const id = btnId.replace(/\D+/, '') - 1;
   const popupMenu = document.createElement('section');
   popupMenu.classList.add('popupMenuBackground');
   popupMenu.innerHTML = `
@@ -27,23 +28,27 @@ const displayMenu = (btnid) => {
       <p class="movieInfo pMargin">rating : ${arr[id].rating.average}</p>
     </div>
   </div>
-  <div class="comments">
-    <h3>Comments : 1</h3>
-    <p>first comment</p>
-    <p>second commnet</p>
+  <div class="commentsTitleDiv" id="commentsTitleDiv">
+    <h3 id="commentsTitle">Comments : 0</h3>
+  </div>
+  <div class="comments" id="commentsDiv">  
+    <p id="firstComment"></p>
   </div>
   <form>
     <title>Add A Comment</title>
-    <input placeholder="Your name">
-    <input placeholder="Your insigths">
-    <button>Comment</button>
+    <input id="fName" class="fName" placeholder="Your name">
+    <textarea id="fComment" class="fComment" placeholder="Your insigths"></textarea>
+    <button id="submitComment" class="submitBtn" type="button">Comment</button>
   </form>
 </div>
   `;
+  getComments(id);
   document.body.appendChild(popupMenu);
   document.body.style.overflow = 'hidden';
   const popupExitBtn = document.querySelector('#popupExitBtn');
   popupExitBtn.addEventListener('click', () => { removeMenu(popupMenu); });
+  const submitComment = document.querySelector('#submitComment');
+  submitComment.addEventListener('click', () => { postAComment(id); });
 };
 
 export default displayMenu;
