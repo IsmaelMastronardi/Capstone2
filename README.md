@@ -31,7 +31,7 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Html ,Css and Javascript.
+> Html, CSS, and Javascript.
 
 <!-- Features -->
 
@@ -39,10 +39,10 @@
 
 - **[Movie cards created dinamically with JavaScript using information fetched from an API]**
 - **[Each movie has a like button that you can click to add more likes to that movie]**
-- **[A popup menu for every movie, that displays the information about it]**
-- **[A comment secition on the popup menu, where you can see all the comments and post a new comment]**
-- **[A counter for the ammount of movies that the page has available]**
-- **[A counter for the amount of comments posted on every movie]**
+- **[A popup menu for every movie, that displays information about it]**
+- **[A comment section on the popup menu, where you can see all the comments and post a new comment]**
+- **[A counter for the number of movies that the page has available]**
+- **[A counter for the number of comments posted on every movie]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -62,7 +62,7 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+To run this project you need:
 Node.js, git , linters (Lighthouse, Webhint and Styleint), jest and jsdom and a code editor.
 
 --
@@ -93,7 +93,7 @@ Example commands:
 
 ### Install
 
-Install this project using git, with the npm i command, Then donwload the contet from "Prerequisites" on this README file, finally run the project using the command npm start.
+Install this project using git, with the npm I command, Then download the content from "Prerequisites" on this README file, and finally run the project using the command npm start.
 
 
 ### Usage
