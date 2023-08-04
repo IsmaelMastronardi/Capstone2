@@ -19,7 +19,8 @@ const displayComments = (json) => {
     }
     json.forEach((elem) => {
       const newComment = document.createElement('p');
-      newComment.textContent = elem.comment;
+      newComment.textContent = `${elem.creation_date} ${elem.username}: ${elem.comment}`;
+      newComment.classList.add('newComment');
       commentsDiv.appendChild(newComment);
     });
     commentCounter();
@@ -29,6 +30,7 @@ const displayComments = (json) => {
 const getComments = async (id) => {
   const response = await fetch(`${myId}?item_id=item${id}`);
   const json = await response.json();
+  console.log(json);
   displayComments(json);
 };
 
