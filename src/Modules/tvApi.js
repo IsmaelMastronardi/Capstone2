@@ -1,5 +1,6 @@
-const container = document.getElementById('cardContainer');
+import { getLikeCount, handleLike } from './likes.js';
 
+const container = document.getElementById('cardContainer');
 const createCard = (json) => {
   // Create a div element with class card
   const card = document.createElement('div');
@@ -20,6 +21,12 @@ const createCard = (json) => {
   const likeBtn = document.createElement('button');
   likeBtn.className = 'like-btn';
   likeBtn.innerHTML = '<i class="far fa-heart"></i><span> likes</span>';
+  likeBtn.id = json.id;
+
+  const likeCount = document.createElement('span');
+  likeCount.className = 'like-count';
+  likeCount.id = json.id;
+  // likeCount.textContent = json.id;
 
   const commentBtn = document.createElement('button');
   commentBtn.className = 'comment-btn';
@@ -31,8 +38,16 @@ const createCard = (json) => {
   card.appendChild(title);
   card.appendChild(imgContainer);
   card.appendChild(likeBtn);
+  card.appendChild(likeCount);
   card.appendChild(commentBtn);
   container.appendChild(card);
+
+  likeBtn.addEventListener('click', () => {
+    handleLike(json.id);
+  });
+
+  // Call the function to retrieve and update the like count
+  getLikeCount(json.id);
 };
 // eslint-disable-next-line import/no-mutable-exports
 let arr = [];
