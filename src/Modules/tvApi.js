@@ -1,4 +1,5 @@
 import { getLikeCount, handleLike } from './likes.js';
+import countItems from './itemsCounter.js';
 
 const container = document.getElementById('cardContainer');
 const createCard = (json) => {
@@ -48,6 +49,7 @@ const createCard = (json) => {
 
   // Call the function to retrieve and update the like count
   getLikeCount(json.id);
+  countItems();
 };
 // eslint-disable-next-line import/no-mutable-exports
 let arr = [];
