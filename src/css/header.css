@@ -1,0 +1,44 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  border-bottom: 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  background: rgb(63, 104, 190);
+  background: radial-gradient(circle, rgba(63, 104, 190, 1) 0%, rgba(40, 203, 207, 1) 100%);
+}
+
+.iconDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.icon {
+  width: 100px;
+}
+
+.headerList {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+}
+
+.headerListItem {
+  font-size: 25px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: black;
+}
