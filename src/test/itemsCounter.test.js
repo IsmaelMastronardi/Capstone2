@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { JSDOM } from 'jsdom';
 
-import countItems from './itemsCounter.js';
+import countItems from '../Modules/itemsCounter.js';
 
 // Mock the DOM environment using JSDOM
 const dom = new JSDOM(

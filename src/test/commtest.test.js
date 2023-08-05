@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const commentCounter = require('./commentCounterTest.js');
+import { commentCounter } from '../Modules/comments.js';
 
 describe('my counter', () => {
   test('3 comments', () => {
@@ -17,8 +17,8 @@ describe('my counter', () => {
       + '</div>'
       + '</div>';
     const commentsTitle = document.querySelector('#commentsTitle');
-    const commentsDiv = document.querySelector('#commentsDiv');
-    commentCounter(commentsDiv, commentsTitle);
+    // const commentsDiv = document.querySelector('#commentsDiv');
+    commentCounter();
     expect(commentsTitle.textContent).toBe('Comments : 3');
   });
   test('9 comments', () => {
@@ -45,8 +45,7 @@ describe('my counter', () => {
       + '</div>'
       + '</div>';
     const commentsTitle = document.querySelector('#commentsTitle');
-    const commentsDiv = document.querySelector('#commentsDiv');
-    commentCounter(commentsDiv, commentsTitle);
+    commentCounter();
     expect(commentsTitle.textContent).toBe('Comments : 9');
   });
   test('0 comments', () => {
@@ -55,8 +54,7 @@ describe('my counter', () => {
       + '<div id="commentsDiv">'
       + '</div>';
     const commentsTitle = document.querySelector('#commentsTitle');
-    const commentsDiv = document.querySelector('#commentsDiv');
-    commentCounter(commentsDiv, commentsTitle);
+    commentCounter();
     expect(commentsTitle.textContent).toBe('Comments : 0');
   });
 });
