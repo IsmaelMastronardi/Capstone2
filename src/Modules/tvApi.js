@@ -52,15 +52,12 @@ const createCard = (json) => {
   countItems();
 };
 // eslint-disable-next-line import/no-mutable-exports
-let arr = [];
-let json = [];
+let seriesJson = [];
 const fetchTvApi = async () => {
   const response = await fetch('https://api.tvmaze.com/shows');
-  json = await response.json();
-  if (json) {
-    const slicedJson = json.sort((a, b) => b.rating.average - a.rating.average).slice(0, 10);
-    arr = slicedJson;
-    console.log(arr);
+  seriesJson = await response.json();
+  if (seriesJson) {
+    const slicedJson = seriesJson.sort((a, b) => b.rating.average - a.rating.average).slice(0, 10);
     slicedJson.forEach((elem) => { createCard(elem); });
   }
 };
@@ -73,11 +70,11 @@ const clearList = () => {
 
 const showSelection = () => {
   clearList();
-  const selectedArr = json.filter((elem) => elem.genres.some((item) => item === 'Drama'));
+  const selectedArr = seriesJson.filter((elem) => elem.genres.some((item) => item === 'Drama'));
   selectedArr.forEach((elem) => createCard(elem));
 };
 
 const sciFi = document.querySelector('#sci-FiBtn');
 sciFi.addEventListener('click', showSelection);
 
-export { fetchTvApi, arr };
+export { fetchTvApi, seriesJson };

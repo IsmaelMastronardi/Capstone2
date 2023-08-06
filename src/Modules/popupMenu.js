@@ -1,5 +1,5 @@
 import { getComments, postAComment } from './comments.js';
-import { arr } from './tvApi.js';
+import { seriesJson } from './tvApi.js';
 
 const removeMenu = (menu) => {
   document.body.removeChild(menu);
@@ -8,7 +8,7 @@ const removeMenu = (menu) => {
 
 const displayMenu = (btnId) => {
   const id = btnId.replace(/\D+/, '');
-  const series = arr.find((obj) => obj.id === Number(id));
+  const series = seriesJson.find((obj) => obj.id === Number(id));
   const popupMenu = document.createElement('section');
   popupMenu.classList.add('popupMenuBackground');
   popupMenu.innerHTML = `
