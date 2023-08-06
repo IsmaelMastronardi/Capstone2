@@ -68,13 +68,15 @@ const clearList = () => {
   }
 };
 
-const showSelection = () => {
+const showSelection = (genre) => {
   clearList();
-  const selectedArr = seriesJson.filter((elem) => elem.genres.some((item) => item === 'Drama'));
-  selectedArr.forEach((elem) => createCard(elem));
+  const newArr = seriesJson.filter((elem) => elem.genres.some((item) => item === genre)).slice(0, 10);
+  newArr.forEach((elem) => createCard(elem));
 };
 
 const sciFi = document.querySelector('#sci-FiBtn');
-sciFi.addEventListener('click', showSelection);
+sciFi.addEventListener('click', () => {
+  showSelection(sciFi.textContent);
+});
 
 export { fetchTvApi, seriesJson };
