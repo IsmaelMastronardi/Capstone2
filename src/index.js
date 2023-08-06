@@ -23,8 +23,26 @@ container.addEventListener('click', (e) => {
 movieSelection.addEventListener('click', (e) => {
   const val = e.target.value;
   switch (val) {
+    case 'Action':
+      showSelection('Action');
+      break;
+    case 'Adventure':
+      showSelection('Adventure');
+      break;
+    case 'Crime':
+      showSelection('Crime');
+      break;
     case 'Drama':
       showSelection('Drama');
+      break;
+    case 'Espionage':
+      showSelection('Espionage');
+      break;
+    case 'Fantasy':
+      showSelection('Fantasy');
+      break;
+    case 'Music':
+      showSelection('Music');
       break;
     case 'Sci-Fi':
       showSelection('Science-Fiction');
