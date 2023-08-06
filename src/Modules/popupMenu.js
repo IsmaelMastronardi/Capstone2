@@ -7,25 +7,26 @@ const removeMenu = (menu) => {
 };
 
 const displayMenu = (btnId) => {
-  const id = btnId.replace(/\D+/, '') - 1;
+  const id = btnId.replace(/\D+/, '');
+  const series = arr.find((obj) => obj.id === Number(id));
   const popupMenu = document.createElement('section');
   popupMenu.classList.add('popupMenuBackground');
   popupMenu.innerHTML = `
   <div class="popupMenu">
   <button class="exitBtn" id="popupExitBtn">X</button>
   <div>
-    <img src="${arr[id].image.medium}" class="popupMenuImg">
+    <img src="${series.image.medium}" class="popupMenuImg">
   </div>
   <div class="movie">
-    <h3 class="movieTitle">${arr[id].name}</h3>
-    <p class="movieInfo pMargin">genres : ${arr[id].genres}</p>
+    <h3 class="movieTitle">${series.name}</h3>
+    <p class="movieInfo pMargin">genres : ${series.genres}</p>
     <div class="infoDiv">
-      <p class="movieInfo pMargin">language : ${arr[id].language}</p>
-      <p class="movieInfo pMargin">status : ${arr[id].status}</p>
+      <p class="movieInfo pMargin">language : ${series.language}</p>
+      <p class="movieInfo pMargin">status : ${series.status}</p>
     </div>
     <div class="infoDiv">
-      <p class="movieInfo pMargin">network : ${arr[id].network.name}</p>
-      <p class="movieInfo pMargin">rating : ${arr[id].rating.average}</p>
+      <p class="movieInfo pMargin">network : ${series.network.name}</p>
+      <p class="movieInfo pMargin">rating : ${series.rating.average}</p>
     </div>
   </div>
   <div class="commentsTitleDiv" id="commentsTitleDiv">

@@ -1,10 +1,12 @@
+main {
+  margin-top: 100px;
+}
+
 #cardContainer {
   display: grid;
   justify-content: space-evenly;
   grid-template-columns: auto auto auto;
   gap: 50px 10px;
-  padding: 130px;
-  margin-top: 30px;
   background: radial-gradient(circle, rgba(63, 104, 190, 1) 0%, rgba(40, 203, 207, 1) 100%);
   margin-bottom: -50px;
 }
