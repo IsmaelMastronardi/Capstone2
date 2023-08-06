@@ -70,8 +70,13 @@ const clearList = () => {
 
 const showSelection = (genre) => {
   clearList();
-  const newArr = seriesJson.filter((elem) => elem.genres.some((item) => item === genre)).slice(0, 10);
-  newArr.forEach((elem) => createCard(elem));
+  if (genre === 'Top-Ten') {
+    const newArr = seriesJson.sort((a, b) => b.rating.average - a.rating.average).slice(0, 10);
+    newArr.forEach((elem) => createCard(elem));
+  } else {
+    const newArr = seriesJson.filter((el) => el.genres.some((item) => item === genre)).slice(0, 10);
+    newArr.forEach((elem) => createCard(elem));
+  }
 };
 
 const sciFi = document.querySelector('#sci-FiBtn');
@@ -79,4 +84,4 @@ sciFi.addEventListener('click', () => {
   showSelection(sciFi.textContent);
 });
 
-export { fetchTvApi, seriesJson };
+export { fetchTvApi, seriesJson, showSelection };
